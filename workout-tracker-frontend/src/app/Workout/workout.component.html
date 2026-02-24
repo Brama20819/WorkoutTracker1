@@ -1,0 +1,33 @@
+<div class="container my-4">
+<h2 class="mb-3">Workouts</h2>
+
+<button class="btn btn-info mb-3" (click)="loadWorkouts()">Show All Workouts</button>
+<ul class="list-group mb-4">
+  <li *ngFor="let workout of workouts">
+    {{ workout.name }} - {{ workout.description }}
+    <button (click)="deleteWorkout(workout.id!)">
+      Delete
+    </button>
+  </li>
+</ul>
+
+<h3>Add Workout</h3>
+<form (ngSubmit)="addWorkout()">
+  <input
+    type="text"
+    [(ngModel)]="newWorkout.name"
+    name="name"
+    placeholder="Name"
+    required
+  >
+
+  <input
+    type="text"
+    [(ngModel)]="newWorkout.description"
+    name="description"
+    placeholder="Description"
+  >
+
+  <button type="submit">Add Workout</button>
+</form>
+</div>
