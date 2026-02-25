@@ -28,4 +28,6 @@ public class ExerciseSet {
 
     @Column(nullable = false)
     private double weight = 0;
+    @Column(nullable = false)
+  private int setNumber;
 }

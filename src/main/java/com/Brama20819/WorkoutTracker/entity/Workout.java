@@ -29,4 +29,8 @@ public class Workout {
     @OneToMany(mappedBy = "workout", cascade = CascadeType.ALL)
     @JsonManagedReference
     private List<Exercise> exercises=new ArrayList<>();
+
+    @ManyToOne
+  @JoinColumn(name = "user_id")
+  private User user;
 }
