@@ -8,6 +8,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -30,4 +32,8 @@ public class ExerciseSet {
     private double weight = 0;
     @Column(nullable = false)
   private int setNumber;
+
+    private LocalDateTime timestamp;
+
+
 }

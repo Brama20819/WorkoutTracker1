@@ -1,4 +1,5 @@
 package com.Brama20819.WorkoutTracker.controller;
+import com.Brama20819.WorkoutTracker.DTO.ChartDataDTO;
 import com.Brama20819.WorkoutTracker.Repository.WorkoutRepository;
 
 import com.Brama20819.WorkoutTracker.entity.Workout;
@@ -10,7 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/workouts")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:4200", allowedHeaders = "*")
 public class WorkoutController {
 
     private final WorkoutRepository workoutRepository;
@@ -18,7 +19,10 @@ public class WorkoutController {
     public WorkoutController(WorkoutRepository workoutRepository) {
         this.workoutRepository = workoutRepository;
     }
-
+    @GetMapping("/progress/{exerciseName}")
+    public List<com.Brama20819.WorkoutTracker.DTO.ChartDataDTO> getExerciseProgress(@PathVariable String exerciseName) {
+        return workoutRepository.getExerciseProgress(exerciseName);
+    }
 
     @GetMapping
     public List<Workout> getAllWorkouts() {
@@ -44,9 +48,9 @@ public class WorkoutController {
     public ResponseEntity<String> deleteWorkout(@PathVariable Long id) {
         if (workoutRepository.existsById(id)) {
             workoutRepository.deleteById(id);
-            return ResponseEntity.ok("Workout deleted successfully");
+            return ResponseEntity.noContent().build();
         } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Workout not found");
+            return ResponseEntity.notFound().build();
         }
     }
 

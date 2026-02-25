@@ -1,33 +1,29 @@
 <div class="container my-4">
-<h2 class="mb-3">Workouts</h2>
+  <h2 class="mb-3">Workouts</h2>
 
-<button class="btn btn-info mb-3" (click)="loadWorkouts()">Show All Workouts</button>
-<ul class="list-group mb-4">
-  <li *ngFor="let workout of workouts">
-    {{ workout.name }} - {{ workout.description }}
-    <button (click)="deleteWorkout(workout.id!)">
-      Delete
-    </button>
-  </li>
-</ul>
+  <div style="height: 200px; width: 100%;">
+    <canvas #myChart></canvas>
+  </div>
 
-<h3>Add Workout</h3>
-<form (ngSubmit)="addWorkout()">
-  <input
-    type="text"
-    [(ngModel)]="newWorkout.name"
-    name="name"
-    placeholder="Name"
-    required
-  >
+  <button class="btn btn-info mb-3" (click)="loadWorkouts()">Show All Workouts</button>
+  <ul class="list-group mb-4">
+    <li *ngFor="let workout of workouts">
+      {{ workout.name }} - {{ workout.description }}
+      <button *ngFor="let ex of workout.exercises" (click)="loadProgress(ex.name)">View {{ex.name}}</button>
+      <button (click)="deleteWorkout(workout.id!)">
+        Delete
+      </button>
+    </li>
+  </ul>
 
-  <input
-    type="text"
-    [(ngModel)]="newWorkout.description"
-    name="description"
-    placeholder="Description"
-  >
+  <h3>Add Workout</h3>
+  <form (ngSubmit)="addWorkout()">
+    <input type="text" [(ngModel)]="newWorkout.name" name="name" placeholder="Workout Name" required>
+    <input type="text" [(ngModel)]="newWorkout.description" name="description" placeholder="Description">
 
-  <button type="submit">Add Workout</button>
-</form>
+    <input type="text" [(ngModel)]="Name" name="exName" placeholder="Exercise Name (e.g. Bench)">
+    <input type="number" [(ngModel)]="Weight" name="weight" placeholder="Weight(in kg)">
+
+    <button type="submit">Add Workout</button>
+  </form>
 </div>
