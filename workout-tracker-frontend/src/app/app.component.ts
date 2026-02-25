@@ -1,15 +1,12 @@
 import { Component } from '@angular/core';
-import { WorkoutComponent } from './Workout/workout.component';
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [WorkoutComponent, HttpClientModule, FormsModule],
+  imports: [RouterOutlet],
   template: `
-    <h1>Workout Tracker</h1>
-    <app-exercise></app-exercise>
+    <router-outlet></router-outlet>
   `
 })
 export class AppComponent {}

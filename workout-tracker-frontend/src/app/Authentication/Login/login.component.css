@@ -1,0 +1,35 @@
+button {
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  margin-left: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s ease;
+  background-color: blue;
+}
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+  background-color: #f0f2f5;
+  font-family: sans-serif;
+}
+
+h1 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+.subtitle {
+  margin-bottom: auto;
+  padding-bottom: 20px;
+  color: #666;
+  font-size: 14px;
+}
+
+button:hover {
+  background-color: #5a50d1;
+  transform: translateY(-2px);
+}
