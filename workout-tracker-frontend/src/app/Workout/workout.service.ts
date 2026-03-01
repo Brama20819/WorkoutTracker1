@@ -7,7 +7,7 @@ import { Workout } from './workout.model';
   providedIn: 'root'
 })
 export class WorkoutService {
-  private apiUrl = 'http://localhost:8080/api/workouts';
+  private apiUrl = '/api/workouts';
 
   constructor(private http: HttpClient) {
   }
