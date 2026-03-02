@@ -7,7 +7,7 @@ import { Workout } from './workout.model';
   providedIn: 'root'
 })
 export class WorkoutService {
-  private apiUrl = '/api/workouts';
+  private apiUrl = 'https://workouttracker1-production.up.railway.app/api/workouts';
 
   constructor(private http: HttpClient) {
   }

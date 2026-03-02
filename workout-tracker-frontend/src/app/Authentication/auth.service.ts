@@ -4,7 +4,7 @@ import { tap } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private apiUrl = 'http://localhost:8080/api/users';
+  private apiUrl = 'https://workouttracker1-production.up.railway.app/api/users';
   constructor(private http: HttpClient) {}
   loginAsGuest() {
     return this.http.post<any>(`${this.apiUrl}/guest-login`, {}).pipe(
